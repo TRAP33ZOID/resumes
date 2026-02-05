@@ -74,12 +74,12 @@ Phone: 437-450-9195
 
 **Select 2-3 experiences based on job fit:**
 
-**IMPORTANT:** When using ZoidAI as a company, make it a clickable link to https://zoid.ca using:
+**IMPORTANT:** When using ZoidAI or Zoid Consulting as a company, make it a clickable link to https://zoid.ca and/or https://zoidconsulting.ca using:
 ```latex
 \vspace{5pt}\cvevent{ROLE}{\href{https://zoid.ca}{ZoidAI}}{DATE}{}
 ```
 
-### 1. ZoidAI - Co-Founder & CTO (September 2025 - Present)
+### 1. ZoidAI (zoid.ca) - Founder (September 2025 - Present)
 **CONTEXT:** This is my main SaaS product—a multi-tenant AI voice agent platform for dental clinics. I built this from scratch and it is currently in production at zoid.ca. 
 
 **Technical Architecture:**
@@ -121,7 +121,7 @@ Phone: 437-450-9195
 **Avoid Making This Sound Like:** "I worked on a team that built..." - I built ALL of this myself as as the technical co-founder.
 
 
-### 2. Zoid Technologies - AI Consultant (May 2024 - Present)
+### 2. Zoid Consulting (zoidconsulting.ca) - AI Consultant (May 2024 - Present)
 **CONTEXT:** I founded an AI consulting practice working directly with small business owners (dental clinics, wellness centers, professional services). I was the technical founder who identified opportunities, pitched solutions, closed deals, and delivered custom AI systems.I was the entire technical team, sales team, and customer success, albeit not many customers were secured as i was doing it part time while in school
 
 **What I Actually Did:**
@@ -459,12 +459,12 @@ Use this exact template structure. Fill in your generated content where the LORE
 % RIGHT COLUMN
 
 \raggedright
-\href{http://waleedahmed.ca}{\textcolor{black}{waleedahmed.ca}}\\
-\href{mailto:waleed@zoid.ca}{\textcolor{black}{waleed@zoid.ca}}\\
-\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{black}{linkedin.com/in/waleed-ahmed}}\\
-\href{https://github.com/TRAP33ZOID}{\textcolor{black}{github.com/TRAP33ZOID}}\\
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:waleed@zoid.ca}{\textcolor{blue}{waleed@zoid.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
 \textcolor{black}{Toronto, ON, Canada}\\
-\textcolor{black}{437-450-9195}\\\vspace{25pt}
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
 
 \cvsection{PROFESSIONAL SUMMARY}
 \begingroup

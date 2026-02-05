@@ -1,0 +1,195 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Data Platform Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder \& Technical Lead}{\href{https://zoid.ca}{ZoidAI}}{Sep 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Designed \textbf{multi-tenant data architecture} using \textbf{PostgreSQL} with \textbf{pgvector extension}, implementing relational schemas for structured data alongside \textbf{vector embeddings} for semantic search across \textbf{768-dimensional} embedding space}
+\item \bodytext{Built end-to-end \textbf{ETL pipelines} processing document ingestion using \textbf{Python} and \textbf{LangChain}, transforming PDFs into semantic chunks, generating embeddings via \textbf{Google Gemini API}, and storing in both relational and vector stores}
+\item \bodytext{Implemented hybrid \textbf{SQL/NoSQL data modeling} synchronizing knowledge bases to VAPI (document-based NoSQL) and pgvector (relational), maintaining consistency across data stores with automated reconciliation workflows}
+\item \bodytext{Integrated \textbf{ML models} for entity resolution matching clinic records across sources and semantic enrichment of call transcripts, applying \textbf{cosine similarity} and threshold-based matching to improve data quality}
+\item \bodytext{Optimized database performance through indexing strategies on vector columns using \textbf{HNSW algorithm}, query tuning for similarity searches, and monitoring data pipeline health with custom logging and alerting}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Data Analyst Intern}{Riipen}{Nov 2023 -- Dec 2023}{}
+\begin{itemize}
+\item \bodytext{Developed \textbf{Python pandas} data transformation pipelines processing insurance policy records, applying data cleaning and normalization techniques to prepare datasets for analytics}
+\item \bodytext{Built \textbf{Tableau} dashboards visualizing policy trends and customer segments, collaborating with stakeholders to translate business questions into data models and KPIs}
+\item \bodytext{Performed statistical modeling to identify patterns in policy claims data, applying hypothesis testing and regression analysis to support data-driven recommendations}
+\item \bodytext{Optimized \textbf{SQL queries} for policy data extraction, reducing query execution time by \textbf{35\%} through indexing strategies and query restructuring}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Semantic Search System with Retrieval-Augmented Generation}{Python, Pinecone, OpenAI API, LangChain}{}{}
+\begin{itemize}
+\item \bodytext{Built \textbf{RAG pipeline} for question-answering system combining \textbf{semantic search} with LLM generation, using \textbf{LangChain} for document chunking, embedding with \textbf{OpenAI text-embedding-3} models, and storing \textbf{1536-dimensional vectors} in \textbf{Pinecone}}
+\item \bodytext{Implemented \textbf{similarity search} using \textbf{cosine distance} metrics with metadata filtering on document type and timestamp, achieving response times under \textbf{200ms} for queries across knowledge base}
+\item \bodytext{Designed data ingestion workflow extracting text from PDFs and web pages, applying text splitters with \textbf{500-token chunks} and \textbf{50-token overlap}, then generating embeddings in batches for efficient processing}
+\item \bodytext{Developed retrieval evaluation framework comparing different chunking strategies and embedding models, measuring precision and recall to optimize search relevance for domain-specific queries}
+\end{itemize}
+
+\vspace{5pt}\cvevent{ETL Orchestration Platform with Airflow}{Python, Apache Airflow, PostgreSQL, Docker}{}{}
+\begin{itemize}
+\item \bodytext{Designed and deployed \textbf{Apache Airflow} DAGs orchestrating multi-stage ETL workflows, extracting data from \textbf{CSV sources} and external APIs, transforming with \textbf{pandas}, and loading into \textbf{PostgreSQL}}
+\item \bodytext{Implemented task dependencies and retry logic handling upstream failures gracefully, using Airflow sensors to wait for data availability before triggering downstream transformations}
+\item \bodytext{Built data validation steps using \textbf{Great Expectations} framework, defining data quality checks for schema validation, null checks, and statistical distribution tests}
+\item \bodytext{Containerized pipeline components with \textbf{Docker}, enabling reproducible ETL execution across development and production environments}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{black}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{black}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{black}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{black}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{25pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Data platform engineer passionate about building scalable data systems that bridge traditional databases and modern ML workflows. Hands-on experience architecting production ETL pipelines, designing data models for SQL and vector databases, and integrating embeddings for semantic search. Built multi-tenant data platforms processing document ingestion, transformation, and retrieval using PostgreSQL, pgvector, and Python. Strong foundation in data quality monitoring, workflow orchestration, and database optimization from both academic training and real-world implementation. Eager to apply data engineering skills to identity verification challenges while learning graph databases, streaming systems, and advanced MLOps practices from experienced engineers.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Programming Languages}
+\bodytext{Python, SQL, TypeScript, JavaScript}
+
+\cvsubsection{Data Engineering \& ETL}
+\bodytext{Apache Airflow, Pandas, NumPy, LangChain, Data Modeling, Pipeline Orchestration, ETL Workflows, Data Transformation}
+
+\cvsubsection{Databases \& Data Stores}
+\bodytext{PostgreSQL, pgvector, Vector Databases, NoSQL, Pinecone, Database Design, Query Optimization, Indexing Strategies}
+
+\cvsubsection{Cloud \& Infrastructure}
+\bodytext{AWS (S3, Lambda), Vercel, Docker, Supabase, Serverless Architecture, CI/CD Pipelines}
+
+\cvsubsection{Machine Learning \& AI}
+\bodytext{Embeddings, Semantic Search, RAG Systems, Entity Resolution, scikit-learn, Feature Engineering, Statistical Modeling}
+
+\cvsubsection{Data Tools \& Frameworks}
+\bodytext{FastAPI, Jupyter, Great Expectations, Git, REST APIs, Webhooks, Real-time Data Processing}
+
+\cvsubsection{Visualization \& Analytics}
+\bodytext{Tableau, Data Dashboards, KPI Development, Statistical Analysis, Hypothesis Testing}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

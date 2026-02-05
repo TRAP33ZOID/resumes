@@ -1,0 +1,202 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Software Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{September 2025 --- Present}{}
+\begin{itemize}
+\item \bodytext{Architected and deployed a \textbf{multi-tenant SaaS platform} from the ground up using \textbf{Next.js 14, TypeScript, and PostgreSQL}, implementing \textbf{Row-Level Security (RLS)} policies to enforce complete data isolation across tenants and prevent cross-organization data leaks}
+\item \bodytext{Built a \textbf{dual knowledge base system} syncing document embeddings to both \textbf{VAPI} for real-time voice calls and \textbf{pgvector} for text-based RAG, processing \textbf{PDF documents} through a custom ingestion pipeline using \textbf{LangChain} text splitters and embedding generation}
+\item \bodytext{Implemented comprehensive \textbf{webhook processing} and \textbf{WebSocket-based} real-time systems for live call handling, integrating \textbf{Stripe} payment infrastructure with subscription lifecycle management, usage tracking, and customer billing portal}
+\item \bodytext{Designed normalized database schema with \textbf{RBAC} support across tenants, organizations, and members, implementing efficient indexing strategies and query optimization for analytics dashboards}
+\item \bodytext{Deployed and maintained production infrastructure on \textbf{Vercel} with serverless functions, established \textbf{CI/CD pipelines}, and wrote \textbf{unit tests with Vitest} to ensure system reliability and performance}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 --- Present}{}
+\begin{itemize}
+\item \bodytext{Founded an AI consulting practice working directly with small business clients, handling the full technical lifecycle from requirements gathering and system design to deployment and ongoing maintenance of production AI systems}
+\item \bodytext{Built and deployed custom \textbf{voice AI agents} using \textbf{VAPI, Bland AI, and Twilio}, integrating with client CRMs and scheduling software through \textbf{RESTful APIs} and webhook handlers to automate workflows}
+\item \bodytext{Developed client-specific \textbf{RAG knowledge bases} by processing domain documents, implementing retrieval pipelines with \textbf{vector embeddings}, and fine-tuning system prompts to maintain conversational accuracy}
+\item \bodytext{Created internal deployment management tools to handle multi-client infrastructure, monitor usage costs, and iterate on systems based on real user feedback in fast-paced production environments}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{January 2024 --- April 2024}{}
+\begin{itemize}
+\item \bodytext{Developed a financial modeling web application using \textbf{Python Flask} backend APIs and \textbf{React} frontend, implementing data visualization dashboards with \textbf{Chart.js} for real-time financial metrics tracking}
+\item \bodytext{Built \textbf{RESTful API endpoints} with proper error handling and validation, integrated \textbf{AWS S3} for document storage, and collaborated using \textbf{Git} workflows with code reviews}
+\item \bodytext{Participated in \textbf{Agile/Scrum} ceremonies including daily standups and sprint planning, contributing to architecture discussions and implementing features based on stakeholder requirements}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Multi-Agent Task Orchestration System}{Python, Redis, Docker, asyncio}{}{}
+\begin{itemize}
+\item \bodytext{Built a \textbf{distributed task scheduling system} inspired by agent coordination patterns, implementing a \textbf{message queue} with \textbf{Redis} for inter-process communication and task distribution across multiple worker processes}
+\item \bodytext{Designed a priority-based task scheduler using \textbf{Python asyncio} for concurrent task execution, implementing backpressure handling and graceful shutdown mechanisms to prevent data loss during system restarts}
+\item \bodytext{Containerized the entire system with \textbf{Docker Compose}, configured health checks and restart policies, and wrote \textbf{pytest} test suites covering task lifecycle, failure scenarios, and concurrency edge cases}
+\item \bodytext{Implemented monitoring and logging infrastructure to track task throughput, queue depth, and worker utilization, optimizing performance to handle concurrent task processing with low-latency execution}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Real-Time Sensor Data Pipeline}{Go, Apache Kafka, TimescaleDB, Grafana}{}{}
+\begin{itemize}
+\item \bodytext{Built streaming data pipeline in \textbf{Go} to ingest and process simulated sensor data from multiple sources using \textbf{Apache Kafka} as message broker, achieving sub-second end-to-end latency}
+\item \bodytext{Implemented \textbf{concurrent consumers} with goroutines processing event streams, applying windowing aggregations and anomaly detection algorithms before persistence to \textbf{TimescaleDB}}
+\item \bodytext{Designed time-series database schema with hypertable partitioning for efficient querying of historical data, supporting fast queries across large datasets}
+\item \bodytext{Created real-time visualization dashboards in \textbf{Grafana} showing sensor health metrics, deployed using \textbf{Docker} with automated \textbf{CI/CD} via \textbf{GitHub Actions}}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Software engineer with production experience building scalable AI-driven systems and distributed infrastructure. Skilled in architecting multi-tenant SaaS platforms, implementing real-time data pipelines, and deploying containerized applications. Experienced collaborating with cross-functional teams to ship robust software frameworks, from database design and API development to testing and DevOps automation. Passionate about autonomous systems and building reliable tools that enable innovation at scale.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Programming Languages}
+\bodytext{Python, C++, Go, TypeScript, JavaScript, Rust (learning), SQL, Bash}
+
+\cvsubsection{Frameworks \& Libraries}
+\bodytext{Next.js, React, Flask, FastAPI, Node.js, LangChain, pandas, NumPy, scikit-learn}
+
+\cvsubsection{Databases \& Storage}
+\bodytext{PostgreSQL, pgvector, Redis, TimescaleDB, Supabase, AWS S3, SQL optimization, database schema design}
+
+\cvsubsection{DevOps \& Infrastructure}
+\bodytext{Docker, Docker Compose, Vercel, Git, GitHub Actions, CI/CD pipelines, Linux/Unix, bash scripting}
+
+\cvsubsection{AI \& Machine Learning}
+\bodytext{RAG systems, LLM integration (GPT-4, Claude), vector embeddings, voice AI (VAPI, Twilio), prompt engineering}
+
+\cvsubsection{Software Engineering}
+\bodytext{RESTful APIs, WebSockets, webhook handlers, microservices, distributed systems, message queues, Apache Kafka, concurrency}
+
+\cvsubsection{Testing \& Methodologies}
+\bodytext{Unit testing (pytest, Vitest), integration testing, Agile/Scrum, TDD, code review, system design, API design}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}
