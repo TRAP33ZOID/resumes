@@ -140,6 +140,7 @@ Phone: 437-450-9195
 - Handled billing, infrastructure costs, and profitability
 
 **Avoid Making This Sound Like:** Generic "backend developer at consulting firm" - emphasize the founder/consultant angle and direct client work.
+**AVOID OVERLAPPING ZOIDAI AND ZOID CONSULtiNG:** 
 
 ### 3. Iki Design Studio - Software Engineering Intern (Jan 2024 - Apr 2024)
 - Financial modeling web application

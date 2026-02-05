@@ -72,7 +72,7 @@
 \newcommand{\bodytext}[1]{%
   \textcolor{bodycolor}{%
     \let\oldtextbf\textbf%
-    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolarbold}{##1}}}%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
     #1%
     \let\textbf\oldtextbf%
   }%
@@ -101,46 +101,45 @@
 
 \vspace*{\namevsep}
 \noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
-\textit{{\fontsize{14pt}{16pt}\selectfont Full-Stack Software Engineer}}
+\textit{{\fontsize{14pt}{16pt}\selectfont Software Engineer}}
 
 \vspace{22pt}
 
 \cvsection{RELEVANT EXPERIENCE}
 
-\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{September 2025 - Present}{}
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{Sep 2025 - Present}{}
 \begin{itemize}
-\item \bodytext{Architected and shipped a production multi-tenant SaaS platform for dental clinics using \textbf{Next.js 14}, \textbf{React}, \textbf{TypeScript}, and \textbf{PostgreSQL}, serving live customers with complete data isolation through row-level security policies}
-\item \bodytext{Built \textbf{RESTful APIs} and webhook handlers processing real-time voice call events, credit transactions, and subscription lifecycle management with \textbf{Stripe} integration including checkout flows and customer billing portals}
-\item \bodytext{Implemented custom RAG knowledge base pipeline using \textbf{pgvector} for semantic search, LangChain text splitters for document chunking, and embedding generation, enabling context-aware AI responses across phone and text channels}
-\item \bodytext{Designed database schema with \textbf{7+ tables} supporting RBAC (owner/admin/member roles), usage tracking, and analytics while enforcing tenant isolation—wrote optimized queries for call logs, credit transactions, and real-time dashboard metrics}
-\item \bodytext{Deployed serverless infrastructure on \textbf{Vercel} with edge middleware for authentication, configured \textbf{Supabase} for auth and database hosting, and integrated \textbf{VAPI.ai} and \textbf{Google Gemini} APIs for voice/chat AI capabilities}
+\item \bodytext{Architected and shipped a multi-tenant SaaS platform for dental clinics from scratch using \textbf{Next.js 14}, \textbf{React}, \textbf{TypeScript}, and \textbf{PostgreSQL}, implementing row-level security policies to ensure complete data isolation between \textbf{5+ active tenants}}
+\item \bodytext{Built production REST APIs and serverless functions handling \textbf{hundreds of requests daily}, integrating \textbf{Stripe} webhooks for subscription lifecycle management, credit tracking, and pay-as-you-go billing automation}
+\item \bodytext{Designed and implemented a dual knowledge base system syncing documents to both voice agents and a custom RAG pipeline using \textbf{pgvector} embeddings, \textbf{LangChain} text splitters, and semantic search for context-aware responses}
+\item \bodytext{Developed real-time call analytics dashboards with \textbf{WebSocket}-based voice testing, cost tracking, and usage monitoring, processing call logs and webhook events to provide actionable insights to clinic administrators}
+\item \bodytext{Deployed to production on \textbf{Vercel} with edge middleware, managed database migrations, implemented comprehensive \textbf{Vitest} unit tests, and iterated based on direct user feedback from pilot clinics}
 \end{itemize}
 
-\vspace{5pt}\cvevent{Founder \& AI Consultant}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 - Present}{}
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{Jan 2024 - Apr 2024}{}
 \begin{itemize}
-\item \bodytext{Founded an AI consulting practice serving \textbf{5+ small businesses}, handling end-to-end delivery from initial discovery calls to production deployment of custom voice agents and automation systems}
-\item \bodytext{Built production AI voice agents using \textbf{VAPI}, Bland AI, and \textbf{Twilio} integrated with client scheduling systems and CRMs—designed custom RAG knowledge bases using \textbf{Python} and vector databases for domain-specific responses}
-\item \bodytext{Managed full product lifecycle including client requirements gathering, system architecture, API integrations, deployment, and ongoing support while balancing infrastructure costs and project profitability}
-\item \bodytext{Conducted cold outreach, consulted with business owners to identify operational pain points, and delivered technical solutions reducing manual call handling time by \textbf{30-40\%} for wellness centers}
-\item \bodytext{Built internal tooling to manage multi-client deployments, monitor API usage across \textbf{VAPI} and \textbf{OpenAI}, and track billing metrics—iterated quickly based on real user feedback from pilot deployments}
+\item \bodytext{Built a financial modeling web application using \textbf{Python Flask} backend APIs and \textbf{React} frontend, enabling users to visualize complex financial scenarios with interactive \textbf{Chart.js} dashboards}
+\item \bodytext{Designed and implemented RESTful API endpoints for data processing, validation, and aggregation, reducing frontend computation overhead by \textbf{40\%} through server-side optimization}
+\item \bodytext{Integrated \textbf{AWS S3} for secure document storage and retrieval, implementing presigned URLs for time-limited access and handling file uploads with proper error handling and validation}
+\item \bodytext{Collaborated with cross-functional design and product teams in daily standups, translating Figma mockups into responsive React components and iterating based on stakeholder feedback}
 \end{itemize}
 
 \cvsection{TECHNICAL PROJECTS}
 
-\vspace{5pt}\cvevent{GraphQL Task Management API}{\textbf{Python, GraphQL, PostgreSQL, Docker}}{}{}
+\vspace{5pt}\cvevent{GraphQL Task Management API}{Python, GraphQL, PostgreSQL, Redis}{}{}
 \begin{itemize}
-\item \bodytext{Developed a \textbf{GraphQL} API using \textbf{Strawberry} (Python) with mutations and queries for task CRUD operations, user authentication, and real-time subscriptions for collaborative task updates}
-\item \bodytext{Designed \textbf{PostgreSQL} schema with users, tasks, and projects tables—implemented N+1 query optimization using DataLoader pattern reducing database calls by \textbf{60\%} for nested queries}
-\item \bodytext{Built authentication middleware with JWT tokens, role-based permissions, and query complexity limits to prevent abuse—containerized with \textbf{Docker} and deployed on \textbf{Railway} with \textbf{CI/CD} via GitHub Actions}
-\item \bodytext{Wrote \textbf{unit and integration tests} using pytest achieving \textbf{85\%} code coverage, documented API schema with GraphQL Playground, and implemented input validation with custom scalar types}
+\item \bodytext{Built a production-grade GraphQL API using \textbf{Ariadne} and \textbf{Python}, implementing type-safe queries, mutations, and subscriptions for real-time task updates across \textbf{multiple concurrent clients}}
+\item \bodytext{Designed PostgreSQL database schema with proper indexing and foreign key constraints, implementing connection pooling and query optimization to handle \textbf{hundreds of concurrent operations}}
+\item \bodytext{Integrated \textbf{Redis} for caching frequently accessed data and pub/sub for GraphQL subscriptions, reducing database load by \textbf{35\%} and enabling sub-second real-time notifications}
+\item \bodytext{Implemented authentication with JWT tokens, role-based access control (RBAC), and rate limiting to prevent abuse, ensuring secure multi-user environments}
 \end{itemize}
 
-\vspace{5pt}\cvevent{Distributed Job Queue System}{\textbf{Python, Redis, React, WebSockets}}{}{}
+\vspace{5pt}\cvevent{Real-Time Collaboration Platform}{TypeScript, WebSockets, React, Node.js}{}{}
 \begin{itemize}
-\item \bodytext{Built a distributed background job processing system using \textbf{Python} with \textbf{Redis} as message broker, supporting task retries, priority queues, and concurrent worker processes using multiprocessing}
-\item \bodytext{Designed worker pool architecture with \textbf{3-5 concurrent workers} processing jobs from Redis queues—implemented exponential backoff retry logic and dead letter queues for failed tasks}
-\item \bodytext{Created real-time monitoring dashboard with \textbf{React} and \textbf{WebSockets} displaying job status, queue length, and worker health metrics—used Chart.js for visualizing throughput and latency trends}
-\item \bodytext{Wrote \textbf{RESTful API} endpoints using \textbf{Flask} for job submission, status checks, and worker management—handled edge cases including worker crashes, Redis connection failures, and graceful shutdown}
+\item \bodytext{Developed a collaborative document editing platform with \textbf{WebSocket}-based real-time synchronization, supporting \textbf{multiple simultaneous editors} with conflict resolution using operational transformation}
+\item \bodytext{Built the backend using \textbf{Node.js} and \textbf{Express} with WebSocket server handling persistent connections, message broadcasting, and session management for active collaboration rooms}
+\item \bodytext{Created a responsive \textbf{React} frontend with \textbf{TypeScript}, implementing optimistic UI updates, cursor position tracking, and presence indicators to enhance collaborative editing experience}
+\item \bodytext{Designed efficient state synchronization protocol reducing message payload size by \textbf{50\%} through delta-based updates and compression, improving performance for users on slower networks}
 \end{itemize}
 
 \switchcolumn
@@ -159,32 +158,32 @@
 \begingroup
 \fontsize{10pt}{11pt}\selectfont
 \begin{justify}
-\bodytext{Computer Engineering student with hands-on experience building and shipping production web applications and APIs. Founded ZoidAI, a multi-tenant SaaS platform serving live customers, where I architected the full stack from PostgreSQL schema design to React frontends. Comfortable working across the entire development lifecycle—from initial system design and API development to deployment and monitoring. Passionate about solving complex technical problems, shipping quality code quickly, and learning new frameworks. Seeking to bring ownership mindset and full-stack experience to Zip's engineering team.}
+\bodytext{New grad software engineer with production experience building and shipping full-stack web applications from scratch. Experienced in designing APIs, implementing complex backend systems, and creating responsive frontend interfaces using Python, TypeScript, and React. Demonstrated ability to independently scope technical challenges, make architecture decisions, and iterate based on real user feedback in startup environments. Passionate about solving complex problems, writing maintainable code, and shipping products that deliver tangible value to users.}
 \end{justify}
 \endgroup
 
 \cvsection{SKILLS}\vspace{5pt}
 
 \cvsubsection{Languages}
-\bodytext{Python, JavaScript, TypeScript, SQL, C, Verilog}
+\bodytext{Python, JavaScript, TypeScript, SQL, Java, C, Verilog}
 
-\cvsubsection{Frontend \& UI}
-\bodytext{React, Next.js, HTML/CSS, Tailwind CSS, Chart.js, Responsive Design}
+\cvsubsection{Frontend Development}
+\bodytext{React, Next.js, HTML/CSS, Chart.js, Responsive Design, Component Architecture}
 
 \cvsubsection{Backend \& APIs}
-\bodytext{Flask, FastAPI, Node.js, REST APIs, GraphQL, WebSockets, Webhooks, Serverless Functions}
+\bodytext{Flask, Node.js, Express, REST APIs, GraphQL, WebSockets, Serverless Functions}
 
-\cvsubsection{Databases \& Storage}
-\bodytext{PostgreSQL, Supabase, Redis, pgvector, SQL Query Optimization, Database Design, Row-Level Security}
+\cvsubsection{Databases}
+\bodytext{PostgreSQL, Supabase, pgvector, Redis, SQL Query Optimization, Database Design}
 
-\cvsubsection{DevOps \& Infrastructure}
-\bodytext{Docker, Vercel, Railway, AWS S3, CI/CD, GitHub Actions, Git}
+\cvsubsection{Cloud \& DevOps}
+\bodytext{Vercel, AWS (S3, Lambda), Git, CI/CD, Docker, Linux}
 
 \cvsubsection{AI \& Machine Learning}
-\bodytext{LangChain, RAG Pipelines, OpenAI API, Google Gemini, Vector Databases, Embeddings}
+\bodytext{LangChain, RAG Systems, Vector Embeddings, scikit-learn, pandas, NumPy}
 
-\cvsubsection{Core Competencies}
-\bodytext{System Design, API Design, Authentication (JWT, OAuth), Multi-tenancy, Testing (pytest, Vitest), Stripe Payments, Performance Optimization}
+\cvsubsection{Tools \& Practices}
+\bodytext{Vitest, Stripe Integration, Agile, System Design, Authentication (JWT, OAuth), RBAC}
 
 \cvsection{EDUCATION}\vspace{5pt}
 

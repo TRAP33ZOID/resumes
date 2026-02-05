@@ -1,0 +1,196 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Applied AI Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{September 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Architected and deployed a production multi-tenant SaaS platform serving dental clinics with AI voice agents, implementing \textbf{PostgreSQL} with \textbf{Row-Level Security} policies to enforce complete tenant isolation and prevent cross-clinic data leakage}
+\item \bodytext{Built end-to-end \textbf{RAG pipeline} with \textbf{pgvector} for semantic search, handling document ingestion through \textbf{LangChain} text splitters, embedding generation, and retrieval to power both voice and text-based AI agents with domain-specific knowledge}
+\item \bodytext{Engineered dual knowledge base synchronization system that maintains consistency between \textbf{VAPI} phone infrastructure and internal vector database, processing \textbf{hundreds of documents} across multiple tenants with real-time updates}
+\item \bodytext{Implemented \textbf{Stripe} webhook handlers and subscription management system with usage-based billing, integrating payment lifecycle events with tenant provisioning and credit allocation workflows}
+\item \bodytext{Deployed to production on \textbf{Vercel} with serverless architecture, managing API routes, edge middleware for authentication, and real-time \textbf{WebSocket} connections for voice agent testing}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 -- Present}{}
+\begin{itemize}
+\item \bodytext{Consulted directly with small business owners to identify operational pain points, architected custom AI automation solutions, and delivered production voice agents and chatbots tailored to specific business workflows}
+\item \bodytext{Built production-grade AI voice agents using \textbf{VAPI}, \textbf{Bland AI}, and \textbf{Twilio}, integrating with client scheduling systems, CRMs, and phone infrastructure to automate appointment booking and customer inquiries}
+\item \bodytext{Designed and deployed domain-specific \textbf{RAG knowledge bases} for each client, processing business documentation, FAQs, and policies to ensure agents provided accurate, context-aware responses}
+\item \bodytext{Owned full customer lifecycle from initial outreach and technical discovery through solution architecture, deployment, and ongoing iteration based on real-world usage feedback}
+\item \bodytext{Managed infrastructure costs, client billing, and profitability while maintaining \textbf{multiple concurrent deployments} across different business verticals including healthcare and professional services}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Multi-Agent Orchestration Framework}{Python, Docker, LangGraph, OpenAI}{}{}
+\begin{itemize}
+\item \bodytext{Developed autonomous agent system using \textbf{LangGraph} for workflow orchestration, implementing task decomposition, tool selection, and multi-step reasoning with \textbf{GPT-4} and \textbf{Claude} models}
+\item \bodytext{Built containerized deployment with \textbf{Docker Compose}, managing agent runtime environment, \textbf{Redis} for state persistence, and \textbf{PostgreSQL} for conversation history and tool execution logs}
+\item \bodytext{Implemented custom tool ecosystem including file operations, web search, and code execution capabilities, with safety guardrails and execution sandboxing to prevent unintended system modifications}
+\item \bodytext{Created evaluation framework to measure agent performance across \textbf{task completion accuracy}, tool selection appropriateness, and reasoning quality using automated benchmarks}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Enterprise RAG Evaluation Pipeline}{Python, LangChain, Qdrant, FastAPI}{}{}
+\begin{itemize}
+\item \bodytext{Built production-ready RAG system with \textbf{Qdrant} vector database, implementing hybrid search combining semantic similarity and keyword matching to improve retrieval accuracy by \textbf{30\%}}
+\item \bodytext{Developed comprehensive evaluation framework measuring retrieval precision, answer faithfulness, and context relevance using \textbf{RAGAS} metrics and synthetic test dataset generation}
+\item \bodytext{Implemented chunking strategy optimization pipeline, testing multiple approaches (recursive, semantic, fixed-size) and embedding models (\textbf{OpenAI}, \textbf{Cohere}) to maximize retrieval quality}
+\item \bodytext{Exposed system via \textbf{FastAPI} endpoints with request validation, rate limiting, and monitoring, deployed with \textbf{Docker} for consistent runtime across development and production environments}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Applied AI engineer with hands-on experience building and deploying production agentic systems for enterprise customers. Built multi-tenant SaaS platform from scratch with RAG pipelines, vector databases, and real-time voice agent infrastructure. Direct consulting experience architecting custom AI solutions for small businesses, handling technical discovery, deployment, and iteration. Strong foundation in modern AI stack including agent orchestration, fine-tuning workflows, and production deployment practices. Comfortable working directly with customers to translate business requirements into technical solutions. Passionate about shipping reliable AI systems that solve real problems.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Languages \& Frameworks}
+\bodytext{Python, TypeScript, JavaScript, React, Next.js, FastAPI, Flask, Node.js, SQL}
+
+\cvsubsection{AI/ML Stack}
+\bodytext{LangChain, RAG Pipelines, Vector Search, Agent Orchestration, LangGraph, Model Fine-tuning, Prompt Engineering, OpenAI API, Anthropic Claude, Google Gemini}
+
+\cvsubsection{Vector Databases \& Search}
+\bodytext{pgvector, Qdrant, Pinecone, Weaviate, Semantic Search, Hybrid Search, Embedding Models}
+
+\cvsubsection{Databases \& Infrastructure}
+\bodytext{PostgreSQL, Supabase, Redis, Row-Level Security, Database Design, Query Optimization}
+
+\cvsubsection{DevOps \& Deployment}
+\bodytext{Docker, Docker Compose, Vercel, AWS (S3, Lambda), Git, GitHub Actions, CI/CD, Serverless Architecture}
+
+\cvsubsection{Enterprise Integration}
+\bodytext{REST APIs, WebSockets, Webhooks, OAuth, Multi-tenancy, Stripe Integration, Twilio, VAPI}
+
+\cvsubsection{Tools \& Platforms}
+\bodytext{VAPI.ai, Bland AI, Tableau, Jupyter, VS Code, Linux, RAGAS, LangSmith}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

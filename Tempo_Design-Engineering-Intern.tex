@@ -1,0 +1,185 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Design Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{Sep 2025 - Present}{}
+\begin{itemize}
+\item \bodytext{Designed and built a complete design system for a multi-tenant AI SaaS platform using \textbf{React}, \textbf{TypeScript}, and \textbf{Tailwind CSS}, establishing component libraries, interaction patterns, and theming tokens that scale across admin dashboards, user portals, and real-time voice interfaces}
+\item \bodytext{Implemented \textbf{60+} production-ready UI components following \textbf{Radix UI} primitives and \textbf{shadcn} patterns, creating reusable component APIs with TypeScript interfaces for variant props (size, color, state) while ensuring WCAG accessibility and responsive behavior}
+\item \bodytext{Crafted complex UX flows for real-time collaborative features including voice testing with \textbf{WebSocket} connections, call monitoring dashboards with live updates, document management with drag-and-drop uploads, and usage analytics—balancing technical constraints with user clarity}
+\item \bodytext{Owned end-to-end UI delivery from concept to production: wireframing user flows in collaborative sessions, prototyping interactions, implementing responsive components with mobile-first breakpoints, and polishing micro-interactions with CSS transitions to improve perceived performance}
+\item \bodytext{Built accessible, polished interfaces achieving \textbf{\textless1s} LCP and passing axe accessibility audits, implementing proper ARIA labels, keyboard navigation, focus management, and semantic HTML across all components while maintaining visual consistency through design tokens}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 - Present}{}
+\begin{itemize}
+\item \bodytext{Consulted directly with small business owners to understand their workflows and pain points, translating complex business requirements into clear, intuitive user interfaces for voice agents and automation tools}
+\item \bodytext{Designed and implemented custom UI for client-facing voice agent dashboards, creating interfaces that non-technical users could navigate confidently—prioritizing clarity over complexity and iterating based on real user feedback}
+\item \bodytext{Built production interfaces integrating with scheduling software and CRMs, designing interaction patterns for error states, loading indicators, and empty states that guide users through multi-step workflows}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{Jan 2024 - Apr 2024}{}
+\begin{itemize}
+\item \bodytext{Partnered with UX designers to translate Figma mockups into pixel-perfect \textbf{React} components for financial modeling dashboards, ensuring responsive layouts and accessible interactions across desktop and tablet viewports}
+\item \bodytext{Designed and implemented data visualization components using \textbf{Chart.js}, making thoughtful decisions on color palettes, typography hierarchy, and animations to improve comprehension of complex financial metrics}
+\item \bodytext{Established component patterns and documented usage guidelines, creating a mini design system for form inputs, tables, and charts that maintained visual consistency while allowing compositional flexibility}
+\end{itemize}
+
+
+
+
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Design engineer who bridges visual craft and technical implementation, with production experience shipping UI systems using React, TypeScript, and modern design patterns. Deep understanding of component architecture, accessibility fundamentals, and interaction design. Passionate about building polished, accessible interfaces that balance aesthetics with usability—from design tokens and theming to micro-interactions and real-time collaboration. Excited to shape Tempo's design system and AI-assisted workflows while contributing to a platform used by thousands of builders.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{UI Engineering \& Implementation}
+\bodytext{React, TypeScript, Next.js, HTML/CSS, Tailwind CSS, Radix UI, shadcn patterns, Responsive Design, Mobile-First Development}
+
+\cvsubsection{Design Systems \& Theming}
+\bodytext{Component Libraries, Design Tokens, CSS Custom Properties, Theming APIs, Typography Systems, Spacing Scales, Color Theory, Dark Mode}
+
+\cvsubsection{Interaction \& Motion Design}
+\bodytext{Framer Motion, CSS Transitions, Keyframe Animations, Spring Physics, Micro-interactions, Loading States, Gesture Handling}
+
+\cvsubsection{Accessibility \& Standards}
+\bodytext{WCAG Compliance, ARIA Patterns, Keyboard Navigation, Screen Reader Support, Focus Management, Semantic HTML, axe DevTools}
+
+
+
+\cvsubsection{Backend \& Databases}
+\bodytext{PostgreSQL, Supabase (Auth, Database, RLS), REST APIs, Edge Functions, Serverless Architecture, TypeScript Node.js}
+
+
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}
