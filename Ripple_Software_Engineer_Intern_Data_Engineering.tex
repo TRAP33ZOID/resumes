@@ -1,0 +1,190 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Data Engineering Student}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{Sept 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Architected and deployed a multi-tenant SaaS data pipeline processing \textbf{document ingestion, embedding generation, and vector storage} using \textbf{PostgreSQL with pgvector}, \textbf{LangChain text splitters}, and chunking strategies for \textbf{RAG-based retrieval systems}}
+\item \bodytext{Designed \textbf{PostgreSQL schema} with \textbf{Row-Level Security (RLS)} policies to enforce tenant isolation across \textbf{5+ tables}, including documents, call logs, credit transactions, and organization members with role-based access control}
+\item \bodytext{Built real-time analytics dashboards tracking \textbf{call volume, cost metrics, and usage patterns} by implementing custom SQL queries with window functions, aggregations, and joins across normalized tables}
+\item \bodytext{Developed \textbf{webhook processing pipeline} handling \textbf{Stripe payment events} and voice call data streams, implementing idempotent handlers and transaction management to ensure data consistency across distributed systems}
+\item \bodytext{Optimized database performance by implementing proper indexing strategies on high-cardinality columns, reducing query latency by \textbf{30-40\%} for analytics workloads}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Data Analyst Intern}{Riipen}{Nov 2023 -- Dec 2023}{}
+\begin{itemize}
+\item \bodytext{Built \textbf{ETL pipelines} using \textbf{Python pandas} to transform and clean insurance policy data from multiple sources, handling missing values, type conversions, and schema normalization for \textbf{several thousand records}}
+\item \bodytext{Designed and implemented \textbf{PostgreSQL database schema} with proper normalization (3NF) for storing policy, customer, and claims data, writing complex queries with CTEs and window functions}
+\item \bodytext{Created interactive \textbf{Tableau dashboards} visualizing policy trends, customer demographics, and claims patterns, enabling stakeholders to identify high-risk segments and optimize pricing strategies}
+\item \bodytext{Performed statistical analysis including hypothesis testing and regression modeling to identify key drivers of policy renewals, presenting findings to cross-functional teams}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+
+
+\vspace{5pt}\cvevent{Distributed Analytics Platform}{Python, Apache Spark, Databricks, Docker}{}{}
+\begin{itemize}
+\item \bodytext{Designed a \textbf{Databricks-based analytics platform} processing \textbf{financial transaction data}, implementing \textbf{PySpark jobs} with DataFrame transformations, aggregations, and window functions for time-series analysis}
+\item \bodytext{Built \textbf{data quality checks} using Great Expectations, validating schema constraints, null values, and business rules before writing to production tables, reducing downstream errors by \textbf{25-35\%}}
+\item \bodytext{Implemented incremental data loading patterns using Delta Lake's \textbf{MERGE operations}, efficiently updating \textbf{dimension and fact tables} while maintaining full audit history}
+\item \bodytext{Containerized Spark jobs with \textbf{Docker} and orchestrated workflows using \textbf{Airflow DAGs}, managing task dependencies and scheduling for daily batch processing}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Computer Engineering student with hands on experience building production analytics systems and data pipelines. Developed multi-tenant data architecture with PostgreSQL, implemented real-time streaming pipelines with AWS services, and built scalable ETL workflows using Python and Spark. Proficient in designing normalized database schemas, optimizing query performance, and creating analytics dashboards. Actively exploring distributed systems and modern data stack technologies through personal projects and open-source contributions. Seeking to apply data engineering skills to help Ripple improve financial systems through innovative crypto solutions.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Programming Languages}
+\bodytext{Python, SQL, TypeScript}
+
+\cvsubsection{Data Platforms \& Tools}
+\bodytext{Databricks, Apache Spark, PostgreSQL, pgvector, Delta Lake}
+
+\cvsubsection{Cloud \& Infrastructure}
+\bodytext{AWS (S3, Lambda, Kinesis, Athena, API Gateway), Docker, Serverless Framework}
+
+\cvsubsection{Data Engineering}
+\bodytext{ETL/ELT Pipelines, Data Warehousing, Stream Processing, Data Modeling, Schema Design, Query Optimization}
+
+
+\cvsubsection{APIs \& Integration}
+\bodytext{RESTful APIs, WebSockets, Webhook Processing, Server-side Integration, OpenAPI}
+
+\cvsubsection{Frameworks \& Libraries}
+\bodytext{pandas, NumPy, PySpark, LangChain, Flask, Next.js, React}
+
+\cvsubsection{Analytics \& Visualization}
+\bodytext{Tableau, SQL Analytics, Statistical Modeling, Data Quality Testing}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

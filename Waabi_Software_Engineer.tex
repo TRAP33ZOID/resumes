@@ -109,44 +109,36 @@
 
 \vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{September 2025 --- Present}{}
 \begin{itemize}
-\item \bodytext{Architected and deployed a \textbf{multi-tenant SaaS platform} from the ground up using \textbf{Next.js 14, TypeScript, and PostgreSQL}, implementing \textbf{Row-Level Security (RLS)} policies to enforce complete data isolation across tenants and prevent cross-organization data leaks}
-\item \bodytext{Built a \textbf{dual knowledge base system} syncing document embeddings to both \textbf{VAPI} for real-time voice calls and \textbf{pgvector} for text-based RAG, processing \textbf{PDF documents} through a custom ingestion pipeline using \textbf{LangChain} text splitters and embedding generation}
-\item \bodytext{Implemented comprehensive \textbf{webhook processing} and \textbf{WebSocket-based} real-time systems for live call handling, integrating \textbf{Stripe} payment infrastructure with subscription lifecycle management, usage tracking, and customer billing portal}
-\item \bodytext{Designed normalized database schema with \textbf{RBAC} support across tenants, organizations, and members, implementing efficient indexing strategies and query optimization for analytics dashboards}
-\item \bodytext{Deployed and maintained production infrastructure on \textbf{Vercel} with serverless functions, established \textbf{CI/CD pipelines}, and wrote \textbf{unit tests with Vitest} to ensure system reliability and performance}
+\item \bodytext{Architected and deployed \textbf{multi-tenant SaaS platform} from scratch using \textbf{Next.js 14, TypeScript, and PostgreSQL}, implementing \textbf{Row-Level Security (RLS)} policies to enforce complete data isolation across tenants and prevent cross-organization data leaks}
+\item \bodytext{Built \textbf{dual knowledge base system} syncing document embeddings to both \textbf{VAPI} for real-time voice calls and \textbf{pgvector} for text-based RAG, processing \textbf{PDF documents} through custom ingestion pipeline using \textbf{LangChain} text splitters}
+\item \bodytext{Implemented comprehensive \textbf{webhook processing} and \textbf{WebSocket-based} real-time systems for live call handling, integrating \textbf{Stripe} payment infrastructure with subscription lifecycle management and billing portal}
+\item \bodytext{Designed normalized database schema with \textbf{RBAC} support across tenants, organizations, and members, implementing strategic indexing and query optimization for analytics dashboards}
+\item \bodytext{Deployed production infrastructure on \textbf{Vercel} with serverless functions, established \textbf{CI/CD pipelines} with automated testing using \textbf{Vitest} to ensure system reliability}
 \end{itemize}
 
 \vspace{5pt}\cvevent{AI Consultant}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 --- Present}{}
 \begin{itemize}
-\item \bodytext{Founded an AI consulting practice working directly with small business clients, handling the full technical lifecycle from requirements gathering and system design to deployment and ongoing maintenance of production AI systems}
+\item \bodytext{Founded AI consulting practice working directly with small business clients, handling full technical lifecycle from requirements gathering and system design to deployment and ongoing maintenance of production AI systems}
 \item \bodytext{Built and deployed custom \textbf{voice AI agents} using \textbf{VAPI, Bland AI, and Twilio}, integrating with client CRMs and scheduling software through \textbf{RESTful APIs} and webhook handlers to automate workflows}
 \item \bodytext{Developed client-specific \textbf{RAG knowledge bases} by processing domain documents, implementing retrieval pipelines with \textbf{vector embeddings}, and fine-tuning system prompts to maintain conversational accuracy}
-\item \bodytext{Created internal deployment management tools to handle multi-client infrastructure, monitor usage costs, and iterate on systems based on real user feedback in fast-paced production environments}
+\item \bodytext{Created internal deployment tools to manage multi-client infrastructure, monitor usage costs, and iterate on systems based on real user feedback}
 \end{itemize}
 
 \vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{January 2024 --- April 2024}{}
 \begin{itemize}
-\item \bodytext{Developed a financial modeling web application using \textbf{Python Flask} backend APIs and \textbf{React} frontend, implementing data visualization dashboards with \textbf{Chart.js} for real-time financial metrics tracking}
+\item \bodytext{Developed financial modeling web application using \textbf{Python Flask} backend APIs and \textbf{React} frontend, implementing data visualization dashboards with \textbf{Chart.js} for real-time financial metrics tracking}
 \item \bodytext{Built \textbf{RESTful API endpoints} with proper error handling and validation, integrated \textbf{AWS S3} for document storage, and collaborated using \textbf{Git} workflows with code reviews}
-\item \bodytext{Participated in \textbf{Agile/Scrum} ceremonies including daily standups and sprint planning, contributing to architecture discussions and implementing features based on stakeholder requirements}
+\item \bodytext{Participated in \textbf{Agile/Scrum} ceremonies including daily standups and sprint planning, contributing to technical discussions and implementing features based on stakeholder requirements}
 \end{itemize}
 
 \cvsection{TECHNICAL PROJECTS}
 
 \vspace{5pt}\cvevent{Multi-Agent Task Orchestration System}{Python, Redis, Docker, asyncio}{}{}
 \begin{itemize}
-\item \bodytext{Built a \textbf{distributed task scheduling system} inspired by agent coordination patterns, implementing a \textbf{message queue} with \textbf{Redis} for inter-process communication and task distribution across multiple worker processes}
-\item \bodytext{Designed a priority-based task scheduler using \textbf{Python asyncio} for concurrent task execution, implementing backpressure handling and graceful shutdown mechanisms to prevent data loss during system restarts}
-\item \bodytext{Containerized the entire system with \textbf{Docker Compose}, configured health checks and restart policies, and wrote \textbf{pytest} test suites covering task lifecycle, failure scenarios, and concurrency edge cases}
-\item \bodytext{Implemented monitoring and logging infrastructure to track task throughput, queue depth, and worker utilization, optimizing performance to handle concurrent task processing with low-latency execution}
-\end{itemize}
-
-\vspace{5pt}\cvevent{Real-Time Sensor Data Pipeline}{Go, Apache Kafka, TimescaleDB, Grafana}{}{}
-\begin{itemize}
-\item \bodytext{Built streaming data pipeline in \textbf{Go} to ingest and process simulated sensor data from multiple sources using \textbf{Apache Kafka} as message broker, achieving sub-second end-to-end latency}
-\item \bodytext{Implemented \textbf{concurrent consumers} with goroutines processing event streams, applying windowing aggregations and anomaly detection algorithms before persistence to \textbf{TimescaleDB}}
-\item \bodytext{Designed time-series database schema with hypertable partitioning for efficient querying of historical data, supporting fast queries across large datasets}
-\item \bodytext{Created real-time visualization dashboards in \textbf{Grafana} showing sensor health metrics, deployed using \textbf{Docker} with automated \textbf{CI/CD} via \textbf{GitHub Actions}}
+\item \bodytext{Built \textbf{distributed task scheduling system} inspired by agent coordination patterns, implementing \textbf{message queue} with \textbf{Redis} for inter-process communication and task distribution across multiple worker processes}
+\item \bodytext{Designed priority-based task scheduler using \textbf{Python asyncio} for concurrent task execution, implementing backpressure handling and graceful shutdown mechanisms to prevent data loss during restarts}
+\item \bodytext{Containerized entire system with \textbf{Docker Compose}, configured health checks and restart policies, and wrote comprehensive \textbf{pytest} test suites covering task lifecycle, failure scenarios, and concurrency edge cases}
+\item \bodytext{Implemented monitoring infrastructure to track task throughput, queue depth, and worker utilization for performance optimization}
 \end{itemize}
 
 \switchcolumn

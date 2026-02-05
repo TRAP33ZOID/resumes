@@ -109,37 +109,37 @@
 
 \vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{Sept 2025 -- Present}{}
 \begin{itemize}
-\item \bodytext{Architected and built a multi-tenant SaaS platform from scratch serving dental clinics with AI voice agents, implementing \textbf{PostgreSQL Row-Level Security} policies to enforce complete data isolation across \textbf{5+ production tenants} and prevent cross-tenant data leaks}
-\item \bodytext{Built real-time call handling system processing \textbf{hundreds of voice calls weekly} using \textbf{WebSocket} connections for live testing and webhook processing, integrating VAPI voice API with custom \textbf{RAG pipeline} using \textbf{pgvector} embeddings and LangChain text splitters for knowledge retrieval}
-\item \bodytext{Implemented pay-as-you-go billing system with \textbf{Stripe webhooks} handling subscription lifecycle events, credit tracking, and usage monitoring, building customer portal for self-service plan management and designing database schema to track per-tenant costs}
-\item \bodytext{Designed scalable backend architecture with \textbf{Next.js 14 App Router}, \textbf{TypeScript}, and \textbf{Supabase PostgreSQL}, building serverless API routes for document ingestion, call analytics dashboards, and admin panels while optimizing database queries to reduce response times by \textbf{30\%}}
-\item \bodytext{Shipped product features iteratively based on direct user feedback, making quick trade-offs between technical debt and shipping speed to validate product-market fit with real customers in production}
+\item \bodytext{Architected and shipped multi-tenant SaaS platform from \textbf{zero to production} in \textbf{3 months}, serving dental clinics with AI voice agents. Made critical product decisions balancing technical debt against shipping speed to validate product-market fit with real paying customers}
+\item \bodytext{Built real-time call handling processing \textbf{hundreds of voice calls weekly} using \textbf{WebSocket} connections and webhook processing, integrating \textbf{VAPI} voice API with custom \textbf{RAG pipeline} using \textbf{pgvector} embeddings for knowledge retrieval across \textbf{5+ production tenants}}
+\item \bodytext{Designed scalable backend with \textbf{Next.js 14}, \textbf{TypeScript}, and \textbf{PostgreSQL}, implementing \textbf{Row-Level Security} policies to enforce complete data isolation. Optimized database queries and indexing strategies, reducing API response times by \textbf{30\%} under production load}
+\item \bodytext{Implemented pay-as-you-go billing with \textbf{Stripe webhooks} handling subscription lifecycle, credit tracking, and usage monitoring. Built customer self-service portal enabling users to manage plans without support intervention}
+\item \bodytext{Shipped features iteratively based on direct user feedback, exercising sound judgment on technical tradeoffs. Prioritized user needs over perfect architecture to deliver working solutions fast in resource-constrained startup environment}
 \end{itemize}
 
 \vspace{5pt}\cvevent{AI Consultant \& Founder}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 -- Present}{}
 \begin{itemize}
-\item \bodytext{Founded AI consulting practice serving small businesses, handling end-to-end product development from cold outreach and client discovery to system design, implementation, and ongoing support for custom voice agents and automation systems}
-\item \bodytext{Built production AI voice agents using \textbf{VAPI}, \textbf{Twilio}, and \textbf{Bland AI} integrated with client scheduling systems and CRMs, implementing custom RAG knowledge bases tailored to each client's specific domain and business workflows}
-\item \bodytext{Developed internal tools to manage multi-client deployments, infrastructure costs, and profitability tracking, learning to ship fast and iterate based on real user feedback while balancing technical quality with business constraints}
-\item \bodytext{Made sound product decisions prioritizing user needs over technical perfection, exercising judgment on feature trade-offs and technical debt to deliver working solutions quickly in resource-constrained startup environment}
+\item \bodytext{Founded AI consulting practice handling end-to-end product development from client discovery to deployment. Owned entire technical stack while managing client relationships, learning to ship fast and iterate based on real user feedback}
+\item \bodytext{Built production AI voice agents using \textbf{VAPI}, \textbf{Twilio}, and \textbf{Bland AI} integrated with client scheduling systems and CRMs. Implemented custom \textbf{RAG knowledge bases} tailored to each client's domain with \textbf{vector embeddings} and semantic search}
+\item \bodytext{Made sound product decisions prioritizing user problems over technical elegance, exercising good judgment on feature scope and technical debt. Developed rapid prototyping workflow enabling \textbf{2-3 day turnaround} from idea to working demo}
+\item \bodytext{Developed internal tools to manage multi-client deployments and infrastructure costs. Handled production debugging and incident response, building monitoring systems to track system health and user satisfaction metrics}
 \end{itemize}
 
 \cvsection{TECHNICAL PROJECTS}
 
-\vspace{5pt}\cvevent{Real-Time Collaboration Platform}{TypeScript, WebSockets, Redis, PostgreSQL}{}{}
+\vspace{5pt}\cvevent{Live Auction Platform}{TypeScript, WebSockets, Redis, PostgreSQL, React}{}{}
 \begin{itemize}
-\item \bodytext{Built real-time collaborative document editor supporting \textbf{concurrent users} with operational transformation for conflict resolution, using \textbf{WebSocket} connections and \textbf{Redis pub/sub} for message broadcasting across server instances}
-\item \bodytext{Implemented \textbf{PostgreSQL} for persistent storage with optimistic locking and version control, designing database schema to efficiently query document history and handle \textbf{thousands of edits per session}}
-\item \bodytext{Developed presence system showing active users and cursor positions in real-time, optimizing message payloads to reduce bandwidth usage by \textbf{40\%} and handling reconnection logic for network interruptions}
-\item \bodytext{Built \textbf{REST API} with authentication, rate limiting, and analytics tracking using \textbf{Express.js}, deploying to production with monitoring for latency and error tracking}
+\item \bodytext{Built real-time auction system supporting \textbf{concurrent bidders} with live price updates and bid history, using \textbf{WebSocket} connections and \textbf{Redis pub/sub} for sub-second message broadcasting across server instances}
+\item \bodytext{Implemented optimistic UI updates and conflict resolution for simultaneous bids, designing \textbf{PostgreSQL} schema with transaction isolation to prevent race conditions and ensure auction integrity with \textbf{ACID guarantees}}
+\item \bodytext{Developed seller dashboard with real-time analytics showing active bidders, current prices, and auction metrics. Built notification system alerting users of outbids and auction endings via \textbf{webhooks} and push notifications}
+\item \bodytext{Designed scalable backend handling \textbf{hundreds of active auctions} with rate limiting and abuse prevention. Deployed with monitoring for latency, error tracking, and user engagement metrics to identify growth opportunities}
 \end{itemize}
 
 \vspace{5pt}\cvevent{Distributed Task Queue System}{Go, RabbitMQ, Docker, Prometheus}{}{}
 \begin{itemize}
-\item \bodytext{Designed and implemented distributed task queue processing \textbf{hundreds of background jobs daily} using \textbf{RabbitMQ} for message brokering, with worker pools for concurrent task execution and retry mechanisms for failed jobs}
-\item \bodytext{Built monitoring dashboard with \textbf{Prometheus} and Grafana tracking queue depth, processing times, and error rates, exposing metrics endpoints to identify bottlenecks and optimize worker allocation}
-\item \bodytext{Implemented priority queues and delayed job scheduling, handling database migrations, email notifications, and data processing tasks with guaranteed delivery semantics using message acknowledgments}
-\item \bodytext{Deployed system using \textbf{Docker Compose} for local development and production environments, writing \textbf{unit tests} and integration tests achieving \textbf{85\% code coverage}}
+\item \bodytext{Designed distributed task queue processing \textbf{hundreds of background jobs daily} using \textbf{RabbitMQ} for message brokering, with worker pools for concurrent execution and exponential backoff retry mechanisms for failed jobs}
+\item \bodytext{Built monitoring dashboard with \textbf{Prometheus} and \textbf{Grafana} tracking queue depth, processing times, error rates, and worker utilization. Exposed metrics endpoints to identify bottlenecks and optimize resource allocation}
+\item \bodytext{Implemented priority queues and delayed job scheduling for email notifications, data processing, and database migrations. Designed system for horizontal scalability, adding workers dynamically based on queue depth}
+\item \bodytext{Deployed using \textbf{Docker Compose} with \textbf{CI/CD} pipeline for automated testing and deployment. Wrote unit and integration tests achieving \textbf{85\%+ code coverage} with focus on reliability and message delivery guarantees}
 \end{itemize}
 
 \switchcolumn
@@ -158,35 +158,32 @@
 \begingroup
 \fontsize{10pt}{11pt}\selectfont
 \begin{justify}
-\bodytext{Software engineer graduating May 2026 with hands-on experience building and shipping production SaaS products. Founded ZoidAI, a multi-tenant AI voice platform serving real customers, where I architected scalable backend systems, built real-time features, and made sound product decisions balancing technical quality with shipping speed. Strong product instincts focused on solving user problems first, with experience in distributed systems, real-time architectures, and high-scale database design. Actively exploring cutting-edge technologies through open source contributions. Eager to join Whatnot to build innovative live shopping experiences and bring my bias for action and product-first thinking to a fast-growing marketplace. Open to relocation to San Francisco, Los Angeles, or Seattle.}
+\bodytext{Software engineer graduating May 2026 with hands-on experience shipping production SaaS products. Founded ZoidAI, building multi-tenant AI platform from scratch where I made critical product decisions balancing speed with quality. Strong product instincts focused on user needs first, with proven ability to ship features fast and iterate based on feedback. Experience building real-time systems, scalable backends, and high-trust user experiences. Passionate about live commerce and marketplace dynamics. Open to relocation to San Francisco, Los Angeles, or Seattle.}
 \end{justify}
 \endgroup
 
 \cvsection{SKILLS}\vspace{5pt}
 
 \cvsubsection{Languages \& Frameworks}
-\bodytext{TypeScript, JavaScript, Python, Go, React, Next.js, Node.js, Express.js, Flask, SQL}
+\bodytext{TypeScript, JavaScript, Python, Go, React, Next.js, Node.js, Express.js, Flask}
 
-\cvsubsection{Databases \& Caching}
-\bodytext{PostgreSQL, Supabase, pgvector, Redis, Query Optimization, Indexing, Database Design}
+\cvsubsection{Backend \& Databases}
+\bodytext{PostgreSQL, Supabase, Redis, Query Optimization, Indexing, Database Design, SQL}
 
 \cvsubsection{Real-Time \& Messaging}
-\bodytext{WebSockets, Server-Sent Events (SSE), RabbitMQ, Message Queues, Pub/Sub, Webhooks}
+\bodytext{WebSockets, Server-Sent Events, RabbitMQ, Redis Pub/Sub, Webhooks, Message Queues}
 
-\cvsubsection{Cloud \& Infrastructure}
-\bodytext{Vercel, AWS (S3, Lambda), Docker, Serverless Functions, CI/CD, Git, Linux}
+\cvsubsection{Infrastructure \& DevOps}
+\bodytext{Docker, Vercel, AWS (S3, Lambda), CI/CD, Git, Linux, Serverless Functions}
 
 \cvsubsection{APIs \& Integration}
-\bodytext{REST APIs, Stripe, OAuth 2.0, Twilio, VAPI, Third-party Integrations, Rate Limiting}
+\bodytext{REST APIs, Stripe, OAuth 2.0, Rate Limiting, Third-party Integrations, API Design}
 
-\cvsubsection{AI \& Machine Learning}
-\bodytext{RAG (Retrieval Augmented Generation), LangChain, OpenAI GPT-4, Google Gemini, Vector Embeddings}
+\cvsubsection{AI \& Automation}
+\bodytext{RAG (Retrieval Augmented Generation), LangChain, Vector Embeddings, OpenAI GPT-4}
 
-\cvsubsection{System Design}
-\bodytext{Multi-tenant Architecture, Scalable Systems, Distributed Systems, Microservices, Database Sharding, Row-Level Security}
-
-\cvsubsection{Testing \& Monitoring}
-\bodytext{Vitest, Unit Testing, Integration Testing, Prometheus, Grafana, Error Tracking, Performance Optimization}
+\cvsubsection{System Design \& Scale}
+\bodytext{Multi-tenant Architecture, Distributed Systems, Scalable Systems, Microservices, Row-Level Security}
 
 \cvsection{EDUCATION}\vspace{5pt}
 
