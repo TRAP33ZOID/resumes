@@ -74,9 +74,10 @@ Phone: 437-450-9195
 
 **Select 2-3 experiences based on job fit:**
 
-**IMPORTANT:** When using ZoidAI or Zoid Consulting as a company, make it a clickable link to https://zoid.ca and/or https://zoidconsulting.ca using:
+**IMPORTANT:** When using ZoidAI or Zoid Consulting as a company, make it a clickable BLUE link to https://zoid.ca and/or https://zoidconsulting.ca using:
 ```latex
-\vspace{5pt}\cvevent{ROLE}{\href{https://zoid.ca}{ZoidAI}}{DATE}{}
+\vspace{5pt}\cvevent{ROLE}{\href{https://zoid.ca}{\textcolor{blue}{ZoidAI}}}{DATE}{}
+\vspace{5pt}\cvevent{ROLE}{\href{https://zoidconsulting.ca}{\textcolor{blue}{Zoid Consulting}}}{DATE}{}
 ```
 
 ### 1. ZoidAI (zoid.ca) - Founder (September 2025 - Present)
@@ -153,6 +154,26 @@ Phone: 437-450-9195
 - Python pandas data pipelines
 - Tableau dashboards
 - Statistical modeling
+
+### 5. Digital One Consulting - DevOps Intern (Jan 2023 - Feb 2023)
+**CONTEXT:** DevOps internship focused on cloud infrastructure and CI/CD automation using Microsoft Azure ecosystem.
+
+**Technical Work:**
+- Azure DevOps for CI/CD pipelines, build automation, release management
+- Azure cloud services (App Services, Azure SQL, Storage, Virtual Machines)
+- Pipeline configuration with YAML for automated testing and deployment
+- Git version control, branching strategies, pull request workflows
+- Infrastructure monitoring and logging
+
+**What I Actually Did:**
+- Built CI/CD pipelines in Azure DevOps for .NET and Node.js applications
+- Configured automated build, test, and deployment workflows
+- Managed Azure cloud resources and deployments
+- Wrote pipeline scripts for automated testing and code quality checks
+- Collaborated with development teams to improve deployment processes
+- Monitored application performance and troubleshot deployment issues
+
+**Avoid Making This Sound Like:** Senior DevOps engineer - emphasize learning, collaboration, and executing defined tasks under guidance.
 
 ---
 
