@@ -1,0 +1,189 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Full-Stack Software Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{\textcolor{blue}{ZoidAI}}}{Sept 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Architected and deployed a production multi-tenant SaaS platform using \textbf{Next.js 14}, \textbf{React}, \textbf{TypeScript}, and \textbf{PostgreSQL} with row-level security, serving dental clinics with AI voice agents and real-time chat systems}
+\item \bodytext{Built \textbf{RESTful APIs} and serverless functions handling webhook integrations with \textbf{Stripe} for subscription billing, VAPI for voice calls, and real-time \textbf{WebSocket} connections for live call testing and monitoring}
+\item \bodytext{Implemented a custom \textbf{RAG (Retrieval-Augmented Generation)} pipeline using \textbf{pgvector} embeddings, LangChain text splitters, and Google Gemini for AI-powered chat, processing PDF documents with \textbf{chunking algorithms} and semantic search}
+\item \bodytext{Designed normalized database schema with \textbf{8+ tables}, implemented complex SQL queries with joins and aggregations for analytics dashboards, and enforced tenant isolation using PostgreSQL RLS policies preventing cross-tenant data access}
+\item \bodytext{Deployed to \textbf{Vercel} with edge middleware, configured CI/CD pipelines, wrote \textbf{unit tests} with \textbf{Vitest}, and monitored production performance metrics including API response times and error rates}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{Jan 2024 -- Apr 2024}{}
+\begin{itemize}
+\item \bodytext{Developed a full-stack financial modeling web application using \textbf{Python Flask} for \textbf{RESTful API} endpoints and \textbf{React} for interactive dashboards, enabling real-time data visualization of financial projections}
+\item \bodytext{Built data visualization components with \textbf{Chart.js} and \textbf{JavaScript}, creating dynamic charts and graphs that rendered complex financial datasets with \textbf{responsive design} using \textbf{HTML5} and \textbf{CSS3}}
+\item \bodytext{Integrated \textbf{AWS S3} for secure document storage and retrieval, implementing file upload/download functionality with proper error handling and authentication using presigned URLs}
+\item \bodytext{Collaborated in an \textbf{Agile} team environment using Git for version control, participated in code reviews, and delivered features following \textbf{SDLC} best practices with iterative development cycles}
+\item \bodytext{Optimized API response times by \textbf{30\%} through database query optimization and caching strategies, improving user experience for data-heavy financial calculations}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+
+
+\vspace{5pt}\cvevent{Distributed URL Shortener Service}{Node.js, Express, React, PostgreSQL, Redis, Docker}{}{}
+\begin{itemize}
+\item \bodytext{Designed and implemented a scalable URL shortening service with \textbf{Node.js} and \textbf{Express}, handling URL encoding/decoding with Base62 algorithm and collision detection for unique short codes}
+\item \bodytext{Implemented \textbf{Redis} caching layer for hot URLs with TTL expiration, achieving \textbf{sub-10ms} response times for cached redirects and reducing database queries by \textbf{70\%} for popular links}
+\item \bodytext{Built analytics dashboard with \textbf{React} displaying click metrics, geographic data, and referrer statistics using \textbf{Chart.js}, querying aggregated data from PostgreSQL with time-series optimizations}
+\item \bodytext{Containerized application with \textbf{Docker}, configured multi-container setup with docker-compose for local development, and implemented rate limiting middleware to prevent abuse with token bucket algorithm}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Full-stack software engineer with hands-on experience building and deploying production web applications using React, TypeScript, and modern backend frameworks. Shipped a multi-tenant SaaS platform handling real-time data, database design, API development, and cloud infrastructure. Proficient in both frontend development with React and TypeScript, and backend systems with Java Spring Boot, Node.js, and Python. Passionate about writing clean, testable code and solving complex technical challenges. Familiar with GenAI integration, vector databases, and LLM-powered applications.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Languages \& Core}
+\bodytext{Java, TypeScript, JavaScript, Python, SQL, HTML5, CSS3}
+
+\cvsubsection{Frontend Frameworks}
+\bodytext{React, Redux, TypeScript, Next.js, Tailwind CSS, Chart.js, Responsive Design}
+
+\cvsubsection{Backend \& APIs}
+\bodytext{Spring Boot, Node.js, Express, Flask, REST APIs, WebSockets, JWT, Hibernate/JPA}
+
+\cvsubsection{Databases \& Cloud}
+\bodytext{PostgreSQL, Redis, MySQL, AWS (S3), Supabase, Vercel, Database Design}
+
+\cvsubsection{DevOps \& Testing}
+\bodytext{Git, Docker, CI/CD, JUnit, Mockito, Vitest, Jest, TDD, Maven, npm}
+
+\cvsubsection{AI \& Machine Learning}
+\bodytext{RAG Pipelines, LLM Integration (Gemini, Claude, GPT), Vector Embeddings (pgvector), NLP}
+
+
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

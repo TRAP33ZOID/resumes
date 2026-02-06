@@ -1,0 +1,195 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Data Analytics \& Engineering Student}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{\textcolor{blue}{ZoidAI}}}{Sept 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Designed and implemented a \textbf{multi-tenant PostgreSQL database schema} with \textbf{Row-Level Security (RLS)} policies across \textbf{8+ tables}, ensuring complete data isolation between tenant organizations while maintaining \textbf{sub-100ms} query performance}
+\item \bodytext{Built analytics dashboards tracking \textbf{call metrics, cost analytics, and usage patterns} using SQL aggregations and real-time data pipelines, providing actionable insights for \textbf{5+ active dental clinics}}
+\item \bodytext{Architected a dual knowledge base system syncing documents to both \textbf{pgvector embeddings} for semantic search and voice AI systems, processing \textbf{PDF documents} through custom ETL pipelines with data quality validation}
+\item \bodytext{Developed data governance workflows for document ingestion including \textbf{metadata extraction, chunking strategies, and embedding generation}, maintaining data lineage tracking across the entire pipeline}
+\item \bodytext{Created SQL queries for \textbf{credit transaction tracking, billing analytics, and tenant usage monitoring}, generating reports on cost per call, usage trends, and system performance metrics}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant}{\href{https://zoidconsulting.ca}{\textcolor{blue}{Zoid Consulting}}}{May 2024 -- Present}{}
+\begin{itemize}
+\item \bodytext{Consulted directly with \textbf{small business owners} to identify operational inefficiencies, translating business requirements into technical data-driven solutions through client interviews and workflow analysis}
+\item \bodytext{Conducted \textbf{data profiling and discovery} on client systems to understand data quality issues, missing metadata, and integration requirements for AI automation deployments}
+\item \bodytext{Built custom \textbf{data pipelines} integrating client scheduling software, CRMs, and phone systems, ensuring data consistency and proper handling of customer information across platforms}
+\item \bodytext{Communicated technical concepts to non-technical stakeholders, creating documentation including \textbf{data flow diagrams, system architecture visuals, and user guides} for ongoing client support}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Data Analyst Intern}{Riipen}{Nov 2023 -- Dec 2023}{}
+\begin{itemize}
+\item \bodytext{Developed an insurance policy visualization platform using \textbf{Python pandas} to process and clean \textbf{thousands of policy records}, identifying data quality issues and implementing validation rules}
+\item \bodytext{Built interactive \textbf{Tableau dashboards} presenting policy trends, premium distributions, and risk analytics, enabling stakeholders to make data-driven underwriting decisions}
+\item \bodytext{Applied \textbf{statistical modeling techniques} including hypothesis testing and confidence interval analysis to identify patterns in policy data and predict customer behavior}
+\item \bodytext{Created \textbf{ETL pipelines} in Python for data extraction, transformation, and loading, documenting data lineage and maintaining data dictionaries for future reference}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{SQL Analytics Dashboard for E-Commerce Data}{PostgreSQL, Python, Metabase}{}{}
+\begin{itemize}
+\item \bodytext{Designed a normalized \textbf{PostgreSQL database schema} (\textbf{3NF}) for an e-commerce analytics system with \textbf{6 tables} including customers, orders, products, and transactions, applying proper indexing strategies}
+\item \bodytext{Built \textbf{SQL queries} with complex joins, window functions, and CTEs to generate reports on customer lifetime value, product performance, and sales trends across \textbf{10k+ simulated transactions}}
+\item \bodytext{Implemented \textbf{data quality checks} using SQL constraints, triggers, and validation scripts to ensure referential integrity and catch anomalies in transaction data}
+\item \bodytext{Created \textbf{Metabase visualizations} displaying KPIs including monthly revenue trends, top-performing products, and customer segmentation analysis, demonstrating proficiency in \textbf{BI tools}}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Computer Engineering student with hands-on experience in data analytics, database design, and data governance. Proven ability to design normalized database schemas, write complex SQL queries, and build ETL pipelines for business applications. Strong foundation in data quality monitoring, metadata management, and data visualization using Tableau and Python. Experienced communicating technical concepts to non-technical stakeholders and collaborating across teams to deliver data-driven solutions.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Data \& Analytics}
+\bodytext{Data Modeling, Data Quality \& Governance, ETL Pipelines, Data Profiling, Data Lineage, Metadata Management, Statistical Analysis, Data Visualization}
+
+\cvsubsection{Databases \& Query Languages}
+\bodytext{SQL (Advanced), PostgreSQL, Oracle Database, Snowflake, Database Design, Query Optimization, Indexing Strategies, Normalization (3NF)}
+
+\cvsubsection{Programming \& Scripting}
+\bodytext{Python (pandas, NumPy, scikit-learn), R, Shell Scripting, Bash, SAS, Jupyter Notebooks}
+
+\cvsubsection{Data Visualization \& BI Tools}
+\bodytext{Tableau, Metabase, matplotlib, seaborn, Chart.js, Power BI, Microsoft Excel (Advanced)}
+
+\cvsubsection{Cloud \& Data Platforms}
+\bodytext{Supabase, AWS S3, Databricks, IBM Knowledge Catalog, Vercel, Linux Commands}
+
+\cvsubsection{Development Tools}
+\bodytext{Git, GitHub, VS Code, Docker, Azure DevOps, CI/CD Pipelines}
+
+\cvsubsection{Microsoft Office Suite}
+\bodytext{Excel (VLOOKUP, Pivot Tables, Macros), PowerPoint, Word, Visio (Data Flow Diagrams)}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

@@ -1,0 +1,195 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Data Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder \& Data Engineer}{\href{https://zoid.ca}{ZoidAI}}{Sept 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Designed and implemented \textbf{PostgreSQL} database schema with Row-Level Security (RLS) policies for multi-tenant data isolation, including normalized tables for tenants, documents, call logs, and transaction records}
+\item \bodytext{Built automated \textbf{ETL pipeline} for document ingestion processing \textbf{PDF} files through chunking, parsing, and embedding generation using \textbf{Python} with LangChain text splitters and pgvector for storage}
+\item \bodytext{Developed dual-sync data pipeline pushing knowledge base content to both VAPI voice systems and local pgvector database, ensuring data consistency across \textbf{2 separate} data stores}
+\item \bodytext{Implemented webhook-based real-time data collection system capturing call logs, usage metrics, and cost tracking data, writing \textbf{hundreds of} transaction records daily for analytics dashboards}
+\item \bodytext{Optimized database queries with proper indexing strategies reducing average query time by \textbf{30\%} for analytics dashboard loads across multi-tenant environment}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Data Analyst Intern}{Riipen}{Nov 2023 -- Dec 2023}{}
+\begin{itemize}
+\item \bodytext{Built \textbf{Python pandas} data pipelines processing insurance policy data from multiple sources, performing data cleaning, transformation, and aggregation on datasets containing \textbf{thousands} of records}
+\item \bodytext{Designed and developed \textbf{Tableau} dashboards visualizing policy trends, claims analysis, and customer segmentation metrics, enabling stakeholders to identify patterns across \textbf{5+} insurance product lines}
+\item \bodytext{Wrote complex \textbf{SQL} queries for data extraction and analysis, including joins across \textbf{8+} tables and window functions for time-series analysis of policy performance}
+\item \bodytext{Performed statistical modeling and hypothesis testing to identify correlations between customer demographics and policy selections, presenting findings to product team}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{Jan 2024 -- Apr 2024}{}
+\begin{itemize}
+\item \bodytext{Developed \textbf{Python Flask} REST APIs serving financial modeling calculations and data transformations, handling \textbf{hundreds of} requests daily from React frontend}
+\item \bodytext{Implemented data visualization components using \textbf{Chart.js} to display time-series financial data, cashflow projections, and sensitivity analysis across multiple scenarios}
+\item \bodytext{Built \textbf{AWS S3} integration for storing and retrieving financial model snapshots, implementing versioning and metadata tracking for audit trail purposes}
+\item \bodytext{Optimized API response times by \textbf{25\%} through query optimization and implementing caching layer for frequently accessed financial calculations}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Automated Data Pipeline for E-Commerce Analytics}{Python, PostgreSQL, Airflow, Docker}{}{}
+\begin{itemize}
+\item \bodytext{Built end-to-end \textbf{ETL pipeline} using \textbf{Python} and \textbf{Apache Airflow} to extract e-commerce transaction data, transform with pandas, and load into \textbf{PostgreSQL} data warehouse on daily schedule}
+\item \bodytext{Implemented data quality checks and anomaly detection using statistical methods (z-score analysis) to flag unusual patterns in \textbf{daily transaction volumes} and alert on data integrity issues}
+\item \bodytext{Created dimensional data model with fact and dimension tables following star schema design, optimizing for analytical queries on product sales, customer behavior, and inventory trends}
+\item \bodytext{Containerized entire pipeline using \textbf{Docker} for reproducible deployment, reducing setup time from hours to \textbf{under 10 minutes} and enabling easy environment replication}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Data engineering professional with hands-on experience building ETL pipelines, designing relational databases, and automating data workflows using Python and SQL. Proven ability to work with PostgreSQL databases at scale, implementing data quality checks and optimizing query performance. Combination of formal data science training and practical software engineering experience building production data systems. Experienced with cloud platforms, API development, and data visualization. Strong foundation in database design, data modeling, and statistical analysis with a focus on delivering actionable insights from complex datasets.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Data Engineering \& ETL}
+\bodytext{Python (pandas, NumPy), SQL, ETL/ELT Pipelines, Data Modeling, Apache Airflow, Data Quality Testing, Fivetran}
+
+\cvsubsection{Databases \& Data Warehousing}
+\bodytext{PostgreSQL, Snowflake, SQL Server, Database Design, Query Optimization, Indexing Strategies, pgvector}
+
+\cvsubsection{Cloud Platforms \& DevOps}
+\bodytext{Azure, AWS (S3, Lambda), Docker, CI/CD, Git, Vercel, Serverless Architecture}
+
+\cvsubsection{Data Analysis \& Visualization}
+\bodytext{Tableau, Statistical Analysis, Data Visualization, Chart.js, matplotlib, seaborn, Hypothesis Testing}
+
+\cvsubsection{Programming \& Scripting}
+\bodytext{Python, SQL, JavaScript, TypeScript, Flask, REST APIs, Webhook Processing, Automation}
+
+\cvsubsection{Machine Learning \& AI}
+\bodytext{Supervised/Unsupervised Learning, Feature Engineering, scikit-learn, LLM Integration, RAG Pipelines, Embeddings}
+
+\cvsubsection{Development Tools}
+\bodytext{VS Code, Jupyter Notebooks, Git/GitHub, Postman, DBeaver, Linux/Unix, Bash Scripting}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

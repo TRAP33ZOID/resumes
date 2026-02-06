@@ -1,0 +1,191 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont AI Enablement \& Analytics Developer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Co-Founder \& CTO}{\href{https://zoid.ca}{ZoidAI}}{Sept 2025 --- Present}{}
+\begin{itemize}
+\item \bodytext{Architected multi-tenant \textbf{AI SaaS platform} from database schema to production deployment, implementing \textbf{PostgreSQL} with Row-Level Security policies to ensure complete data isolation across \textbf{5+ dental clinic clients}}
+\item \bodytext{Built comprehensive \textbf{analytics dashboards} tracking call metrics, usage patterns, and cost analytics using \textbf{Next.js} and \textbf{TypeScript}, enabling data-driven decision making for clinic administrators}
+\item \bodytext{Designed and implemented \textbf{dual knowledge base system} integrating \textbf{VAPI.ai} for voice calls and \textbf{pgvector} embeddings for text chat, processing \textbf{hundreds of documents} through custom \textbf{RAG pipeline} with LangChain}
+\item \bodytext{Developed \textbf{Stripe payment integration} with usage tracking, credit system, and webhook handlers managing subscription lifecycle and billing automation for pay-as-you-go model}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant}{Zoid Technologies}{May 2024 --- Present}{}
+\begin{itemize}
+\item \bodytext{Consulted with \textbf{small business owners} across dental and wellness industries to identify operational pain points and designed custom \textbf{AI automation solutions} addressing scheduling, customer communication, and workflow inefficiencies}
+\item \bodytext{Built production \textbf{AI voice agents} using \textbf{VAPI}, \textbf{Bland AI}, and \textbf{Twilio}, creating custom RAG knowledge bases tailored to each client's specific business domain and operational requirements}
+\item \bodytext{Managed complete project lifecycle from initial discovery calls through deployment and ongoing support, balancing technical implementation with client relationship management and iterative feedback incorporation}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Data Analyst Intern}{Riipen}{Nov 2023 --- Dec 2023}{}
+\begin{itemize}
+\item \bodytext{Designed and developed insurance policy visualization platform using \textbf{Python pandas} for \textbf{data pipeline} construction, processing policy datasets and transforming raw data into actionable insights}
+\item \bodytext{Created interactive \textbf{Tableau dashboards} for stakeholders, translating complex insurance metrics into clear visualizations that informed business decision-making processes}
+\item \bodytext{Applied \textbf{statistical modeling} techniques to identify trends and patterns in insurance policy data, collaborating with cross-functional teams to communicate findings and recommendations}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{HR Process Automation \& Analytics System}{\textbf{Python, Streamlit, PostgreSQL, OpenAI API}}{}{}
+\begin{itemize}
+\item \bodytext{Built internal tool automating HR document processing and analysis using \textbf{LangChain} for document parsing, extracting key information from resumes and job descriptions to streamline candidate screening workflows}
+\item \bodytext{Implemented \textbf{semantic search} using \textbf{OpenAI embeddings} and \textbf{pgvector} to match candidate profiles with job requirements, reducing manual review time by enabling quick similarity-based filtering}
+\item \bodytext{Created \textbf{analytics dashboard} visualizing hiring funnel metrics, application trends, and candidate demographics using \textbf{Plotly}, providing stakeholders with real-time insights into recruitment pipeline health}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{black}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{black}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{black}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{black}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{25pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Computer Engineering student with hands-on experience building AI-enabled systems and conducting business analytics across healthcare and professional services. Currently operating a production AI SaaS platform serving dental clinics while pursuing degree completion. Proven track record translating business needs into technical solutions, from designing data pipelines to deploying intelligent automation systems. Passionate about applying AI to streamline HR processes and enable data-driven decision making. Combines technical depth in machine learning, data analytics, and full-stack development with collaborative approach to cross-functional projects. Eager to contribute analytical skills and AI implementation experience to CIBC's HR transformation initiatives.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{AI \& Machine Learning}
+\bodytext{LangChain, OpenAI API, Google Gemini, RAG Systems, Vector Embeddings, VAPI.ai, Prompt Engineering, LLM Integration}
+
+\cvsubsection{Data Analytics \& Visualization}
+\bodytext{Python (pandas, NumPy, scikit-learn), SQL, PostgreSQL, Tableau, Plotly, matplotlib, Statistical Analysis, Data Pipelines}
+
+\cvsubsection{Backend Development}
+\bodytext{Next.js, React, TypeScript, Flask, Node.js, REST APIs, WebSockets, Serverless Functions, API Design}
+
+\cvsubsection{Database \& Infrastructure}
+\bodytext{PostgreSQL, Supabase, pgvector, Row-Level Security, Query Optimization, Vercel, AWS S3, Database Design}
+
+\cvsubsection{Business \& Project Tools}
+\bodytext{Process Documentation, Workflow Automation, Stakeholder Communication, Project Coordination, Requirements Gathering}
+
+\cvsubsection{Development Practices}
+\bodytext{Git, CI/CD, Unit Testing (Vitest), Agile Methodologies, Technical Documentation, Code Review}
+
+\cvsubsection{AI Agent Frameworks}
+\bodytext{LlamaIndex, Fabric, Agent Orchestration, Automation Workflows, n8n, Model Context Protocol (MCP)}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

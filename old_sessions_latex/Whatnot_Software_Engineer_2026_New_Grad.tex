@@ -1,0 +1,195 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \textcolor{bodycolor}{%
+    \let\oldtextbf\textbf%
+    \renewcommand{\textbf}[1]{\oldtextbf{\textcolor{bodycolorbold}{##1}}}%
+    #1%
+    \let\textbf\oldtextbf%
+  }%
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont Software Engineer}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Founder}{\href{https://zoid.ca}{ZoidAI}}{Sept 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Architected and shipped multi-tenant SaaS platform from \textbf{zero to production} in \textbf{3 months}, serving dental clinics with AI voice agents. Made critical product decisions balancing technical debt against shipping speed to validate product-market fit with real paying customers}
+\item \bodytext{Built real-time call handling processing \textbf{hundreds of voice calls weekly} using \textbf{WebSocket} connections and webhook processing, integrating \textbf{VAPI} voice API with custom \textbf{RAG pipeline} using \textbf{pgvector} embeddings for knowledge retrieval across \textbf{5+ production tenants}}
+\item \bodytext{Designed scalable backend with \textbf{Next.js 14}, \textbf{TypeScript}, and \textbf{PostgreSQL}, implementing \textbf{Row-Level Security} policies to enforce complete data isolation. Optimized database queries and indexing strategies, reducing API response times by \textbf{30\%} under production load}
+\item \bodytext{Implemented pay-as-you-go billing with \textbf{Stripe webhooks} handling subscription lifecycle, credit tracking, and usage monitoring. Built customer self-service portal enabling users to manage plans without support intervention}
+\item \bodytext{Shipped features iteratively based on direct user feedback, exercising sound judgment on technical tradeoffs. Prioritized user needs over perfect architecture to deliver working solutions fast in resource-constrained startup environment}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Consultant \& Founder}{\href{https://zoidconsulting.ca}{Zoid Consulting}}{May 2024 -- Present}{}
+\begin{itemize}
+\item \bodytext{Founded AI consulting practice handling end-to-end product development from client discovery to deployment. Owned entire technical stack while managing client relationships, learning to ship fast and iterate based on real user feedback}
+\item \bodytext{Built production AI voice agents using \textbf{VAPI}, \textbf{Twilio}, and \textbf{Bland AI} integrated with client scheduling systems and CRMs. Implemented custom \textbf{RAG knowledge bases} tailored to each client's domain with \textbf{vector embeddings} and semantic search}
+\item \bodytext{Made sound product decisions prioritizing user problems over technical elegance, exercising good judgment on feature scope and technical debt. Developed rapid prototyping workflow enabling \textbf{2-3 day turnaround} from idea to working demo}
+\item \bodytext{Developed internal tools to manage multi-client deployments and infrastructure costs. Handled production debugging and incident response, building monitoring systems to track system health and user satisfaction metrics}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Live Auction Platform}{TypeScript, WebSockets, Redis, PostgreSQL, React}{}{}
+\begin{itemize}
+\item \bodytext{Built real-time auction system supporting \textbf{concurrent bidders} with live price updates and bid history, using \textbf{WebSocket} connections and \textbf{Redis pub/sub} for sub-second message broadcasting across server instances}
+\item \bodytext{Implemented optimistic UI updates and conflict resolution for simultaneous bids, designing \textbf{PostgreSQL} schema with transaction isolation to prevent race conditions and ensure auction integrity with \textbf{ACID guarantees}}
+\item \bodytext{Developed seller dashboard with real-time analytics showing active bidders, current prices, and auction metrics. Built notification system alerting users of outbids and auction endings via \textbf{webhooks} and push notifications}
+\item \bodytext{Designed scalable backend handling \textbf{hundreds of active auctions} with rate limiting and abuse prevention. Deployed with monitoring for latency, error tracking, and user engagement metrics to identify growth opportunities}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Distributed Task Queue System}{Go, RabbitMQ, Docker, Prometheus}{}{}
+\begin{itemize}
+\item \bodytext{Designed distributed task queue processing \textbf{hundreds of background jobs daily} using \textbf{RabbitMQ} for message brokering, with worker pools for concurrent execution and exponential backoff retry mechanisms for failed jobs}
+\item \bodytext{Built monitoring dashboard with \textbf{Prometheus} and \textbf{Grafana} tracking queue depth, processing times, error rates, and worker utilization. Exposed metrics endpoints to identify bottlenecks and optimize resource allocation}
+\item \bodytext{Implemented priority queues and delayed job scheduling for email notifications, data processing, and database migrations. Designed system for horizontal scalability, adding workers dynamically based on queue depth}
+\item \bodytext{Deployed using \textbf{Docker Compose} with \textbf{CI/CD} pipeline for automated testing and deployment. Wrote unit and integration tests achieving \textbf{85\%+ code coverage} with focus on reliability and message delivery guarantees}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{\textcolor{blue}{waleedahmed.ca}}\\
+\href{mailto:hello@waleedahmed.ca}{\textcolor{blue}{hello@waleedahmed.ca}}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{\textcolor{blue}{linkedin.com/in/waleed-ahmed}}\\
+\href{https://github.com/TRAP33ZOID}{\textcolor{blue}{github.com/TRAP33ZOID}}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{15pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Software engineer graduating May 2026 with hands-on experience shipping production SaaS products. Founded ZoidAI, building multi-tenant AI platform from scratch where I made critical product decisions balancing speed with quality. Strong product instincts focused on user needs first, with proven ability to ship features fast and iterate based on feedback. Experience building real-time systems, scalable backends, and high-trust user experiences. Passionate about live commerce and marketplace dynamics. Open to relocation to San Francisco, Los Angeles, or Seattle.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Languages \& Frameworks}
+\bodytext{TypeScript, JavaScript, Python, Go, React, Next.js, Node.js, Express.js, Flask}
+
+\cvsubsection{Backend \& Databases}
+\bodytext{PostgreSQL, Supabase, Redis, Query Optimization, Indexing, Database Design, SQL}
+
+\cvsubsection{Real-Time \& Messaging}
+\bodytext{WebSockets, Server-Sent Events, RabbitMQ, Redis Pub/Sub, Webhooks, Message Queues}
+
+\cvsubsection{Infrastructure \& DevOps}
+\bodytext{Docker, Vercel, AWS (S3, Lambda), CI/CD, Git, Linux, Serverless Functions}
+
+\cvsubsection{APIs \& Integration}
+\bodytext{REST APIs, Stripe, OAuth 2.0, Rate Limiting, Third-party Integrations, API Design}
+
+\cvsubsection{AI \& Automation}
+\bodytext{RAG (Retrieval Augmented Generation), LangChain, Vector Embeddings, OpenAI GPT-4}
+
+\cvsubsection{System Design \& Scale}
+\bodytext{Multi-tenant Architecture, Distributed Systems, Scalable Systems, Microservices, Row-Level Security}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{Bachelor of Computer Engineering}{Toronto Metropolitan University}{May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}

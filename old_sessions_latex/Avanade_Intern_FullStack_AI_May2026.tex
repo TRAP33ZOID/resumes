@@ -1,0 +1,190 @@
+% !TEX TS-program = pdflatex
+
+\documentclass[10pt,letterpaper]{article}
+
+% Basic packages
+\usepackage[left=0.4in,right=0.4in,top=0.4in,bottom=0.4in,columnsep=0.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Font settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{mainblue}{HTML}{1D4ED8}
+\definecolor{bodycolor}{HTML}{666666}
+\definecolor{bodycolorbold}{HTML}{444444}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=mainblue,
+    filecolor=mainblue,
+    urlcolor=mainblue,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\color{mainblue}\large\bfseries\uppercase}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{8pt}{2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+\newlength{\cvsubsectionvsepabove}
+\setlength{\cvsubsectionvsepabove}{7pt}
+
+\newlength{\cvsubsectionvsepbelow}
+\setlength{\cvsubsectionvsepbelow}{3pt}
+
+\titlespacing{\subsection}{0pt}{\cvsubsectionvsepabove}{\cvsubsectionvsepbelow}
+
+\newlength{\namevsep}
+\setlength{\namevsep}{0pt}
+
+% Column layout
+\usepackage{paracol}
+\columnratio{0.65}
+
+% Itemize settings
+\AtBeginEnvironment{itemize}{\small}
+\setlist[itemize]{leftmargin=*, topsep=4pt, parsep=0pt, itemsep=3pt}
+
+% Body text command
+\newcommand{\bodytext}[1]{%
+  \begingroup\color{bodycolor}%
+  \renewcommand{\textbf}[1]{{\textcolor{bodycolorbold}{\bfseries ##1}}}%
+  #1%
+  \endgroup
+}
+
+% Custom commands
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+\newcommand{\cvevent}[4]{%
+  \noindent\textbf{#1} --- \textit{#2} --- #3
+  #4
+}
+
+\newcommand{\cvsubsection}[1]{
+  \subsection{#1}
+}
+
+\begin{document}
+\normalsize
+
+\begin{paracol}{2}
+
+% LEFT COLUMN
+
+\vspace*{\namevsep}
+\noindent{\textcolor{mainblue}{\textbf{\fontsize{36pt}{28pt}\selectfont Waleed Ahmed}}}\\[15pt]
+\textit{{\fontsize{14pt}{16pt}\selectfont FULL STACK AI DEVELOPER}}
+
+\vspace{22pt}
+
+\cvsection{RELEVANT EXPERIENCE}
+
+\vspace{5pt}\cvevent{Co-Founder \& CTO}{\href{https://zoid.ca/}{ZoidAI}}{Sep 2025 -- Present}{}
+\begin{itemize}
+\item \bodytext{Architected a multi-tenant \textbf{Full-Stack AI SaaS} platform using \textbf{Next.js 14}, \textbf{TypeScript}, and \textbf{PostgreSQL}, currently serving \textbf{5+ dental clinics} with automated voice handling.}
+\item \bodytext{Engineered a custom \textbf{RAG (Retrieval-Augmented Generation)} pipeline using \textbf{LangChain} and \textbf{pgvector} to ingest PDF documents and power context-aware AI agents.}
+\item \bodytext{Designed a robust system architecture with \textbf{Row-Level Security (RLS)} in \textbf{Supabase} to ensure 100\% data isolation between tenants in a shared database environment.}
+\item \bodytext{Integrated \textbf{Stripe} webhooks for subscription management and automated billing, handling \textbf{hundreds of API events} weekly with reliable error handling.}
+\item \bodytext{Implemented \textbf{CI/CD pipelines} on \textbf{Vercel} for automated testing and deployment, reducing production bug regressions by approx \textbf{40\%}.}
+\end{itemize}
+
+\vspace{5pt}\cvevent{AI Solutions Consultant}{Zoid Technologies}{May 2024 -- Present}{}
+\begin{itemize}
+\item \bodytext{Led end-to-end \textbf{consulting engagements} for small business clients, translating complex operational pain points into technical \textbf{system architecture} requirements.}
+\item \bodytext{Developed and shipped custom \textbf{Voice AI agents} using \textbf{Python} and \textbf{Twilio}, automating appointment scheduling and reducing front-desk workload by roughly \textbf{30\%} for pilot clients.}
+\item \bodytext{Collaborated directly with stakeholders to design iterative solutions, applying \textbf{Agile methodologies} to deliver features based on real-time user feedback.}
+\item \bodytext{Built internal tooling for monitoring client usage and costs, optimizing API spend across \textbf{multiple LLM providers} (OpenAI, Anthropic).}
+\end{itemize}
+
+\vspace{5pt}\cvevent{Software Engineering Intern}{Iki Design Studio}{Jan 2024 -- Apr 2024}{}
+\begin{itemize}
+\item \bodytext{Built RESTful APIs using \textbf{Python Flask} to power a financial modeling application, improving data retrieval speeds for the frontend dashboard.}
+\item \bodytext{Developed interactive data visualizations using \textbf{React} and \textbf{Chart.js}, enabling users to analyze complex financial datasets effectively.}
+\item \bodytext{Integrated \textbf{AWS S3} for secure document storage and implemented optimized database queries to handle growing user data.}
+\item \bodytext{Participated in code reviews and daily stand-ups, contributing to a \textbf{20\% increase} in team development velocity during the internship.}
+\end{itemize}
+
+\cvsection{TECHNICAL PROJECTS}
+
+\vspace{5pt}\cvevent{Distributed Raft Consensus System}{C++, RPC, Distributed Systems}{}{}
+\begin{itemize}
+\item \bodytext{Designed and implemented a fault-tolerant distributed key-value store based on the \textbf{Raft consensus algorithm} in C++.}
+\item \bodytext{Engineered leader election, log replication, and safety mechanisms to ensure \textbf{strong consistency} across nodes during network partitions.}
+\item \bodytext{Optimized message passing protocol to handle concurrent client requests with minimal latency, validating system correctness through rigorous failure testing.}
+\item \bodytext{Demonstrated deep understanding of \textbf{system architecture}, concurrency, and low-level memory management.}
+\end{itemize}
+
+\switchcolumn
+
+% RIGHT COLUMN
+
+\raggedright
+\href{http://waleedahmed.ca}{waleedahmed.ca}\\
+\href{mailto:hello@waleedahmed.ca}{hello@waleedahmed.ca}\\
+\href{https://linkedin.com/in/waleed-ahmed-8396a1187}{linkedin.com/in/waleed-ahmed}\\
+\href{https://github.com/TRAP33ZOID}{github.com/TRAP33ZOID}\\
+\textcolor{black}{Toronto, ON, Canada}\\
+\textcolor{black}{437-450-9195}\\\vspace{25pt}
+
+\cvsection{PROFESSIONAL SUMMARY}
+\begingroup
+\fontsize{10pt}{11pt}\selectfont
+\begin{justify}
+\bodytext{Final-year Computer Engineering student with over 2 years of production experience building Full-Stack AI systems. Proven track record of architecting and shipping multi-tenant SaaS platforms using TypeScript, React, and Next.js. Combines strong technical depth in distributed systems with a consulting mindset, having successfully delivered custom AI automation solutions to business clients. Passionate about applying cutting-edge AI technologies to solve real-world enterprise challenges.}
+\end{justify}
+\endgroup
+
+\cvsection{SKILLS}\vspace{5pt}
+
+\cvsubsection{Languages}
+\bodytext{TypeScript, JavaScript, Python, SQL, C++, C, Verilog, HTML/CSS}
+
+\cvsubsection{Frontend Frameworks}
+\bodytext{React, Next.js, Tailwind CSS, Redux, Angular (familiarity)}
+
+\cvsubsection{Backend \& Database}
+\bodytext{Node.js, PostgreSQL, MySQL, Supabase, MongoDB, REST APIs, WebSockets}
+
+\cvsubsection{AI \& Machine Learning}
+\bodytext{RAG Pipelines, LangChain, Vector Databases (pgvector), LLM Integration (OpenAI/Gemini), VAPI}
+
+\cvsubsection{Cloud \& DevOps}
+\bodytext{Vercel, Docker, CI/CD Pipelines, Git, AWS (S3, EC2), Linux}
+
+\cvsubsection{Concepts}
+\bodytext{System Architecture, Distributed Systems, OOP, Agile/Scrum, Data Structures \& Algorithms}
+
+\cvsection{EDUCATION}\vspace{5pt}
+
+\cvevent{B.Eng. Computer Engineering}{Toronto Metropolitan University}{Expected May 2026}{}
+
+\cvevent{Diploma of Data Science}{Lighthouse Labs}{Oct 2023}{}
+
+\end{paracol}
+\end{document}
